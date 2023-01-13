@@ -2,10 +2,18 @@
   "name": "athenas-challenge",
   "version": "1.0.0",
   "description": "Athenas CRUD challenge with Bootstrap & JQuery & DevExpress",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "r_js -convert node_modules/devextreme/cjs devextreme_amd && r_js -convert node_modules/@devextreme/runtime/cjs/inferno devextreme_amd/runtime/inferno_amd"
+    "compose": "docker-compose",
+    "install:web": "cd web && npm install",
+    "install:server": "cd server && npm install",
+    "postinstall": "concurrently \"npm run install:server\" \"npm run install:web\"",
+    "start:web": "cd web && npm start",
+    "start:server": "cd server && npm start",
+    "start": "concurrently \"npm run start:server\" \"npm run start:web\"",
+    "test:web": "cd web && npm run test",
+    "test:server": "cd server && npm run test",
+    "test": "npm run test:web && npm run test:server"
   },
   "repository": {
     "type": "git",
@@ -22,11 +30,7 @@
     "url": "https://github.com/laravieira/athenas-challenge/issues"
   },
   "homepage": "https://github.com/laravieira/athenas-challenge#readme",
-  "dependencies": {
-    "bootstrap": "^5.2.3",
-    "devextreme": "^22.2.3",
-    "jquery": "^3.6.3",
-    "r.js": "^1.0.3",
-    "requirejs": "^2.3.6"
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }

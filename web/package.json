@@ -1,0 +1,35 @@
+{
+  "name": "athenas-challenge-web",
+  "version": "1.0.0",
+  "description": "Athenas CRUD challenge with Bootstrap & JQuery & DevExpress",
+  "scripts": {
+    "start": "http-server -p 80",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "r_js -convert node_modules/devextreme/cjs devextreme_amd && r_js -convert node_modules/@devextreme/runtime/cjs/inferno devextreme_amd/runtime/inferno_amd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laravieira/athenas-challenge.git"
+  },
+  "keywords": [
+    "athenas",
+    "challenge",
+    "font-end"
+  ],
+  "author": "L4R4V131R4",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/laravieira/athenas-challenge/issues"
+  },
+  "homepage": "https://github.com/laravieira/athenas-challenge#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "devextreme": "^22.2.3",
+    "jquery": "^3.6.3",
+    "r.js": "^1.0.3",
+    "requirejs": "^2.3.6"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
