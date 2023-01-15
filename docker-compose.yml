@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  mysql:
+    image: mysql/mysql-server
+    container_name: athenas-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=DrrW*t2Wr7rFuKYV!rHV
+      - MYSQL_DATABASE=athenas
+      - MYSQL_ROOT_HOST=%
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 50
+  server:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    container_name: athenas-server
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_PASSWORD=DrrW*t2Wr7rFuKYV!rHV
+      - MYSQL_USER=root
+      - MYSQL_DATABASE=athenas
+    ports:
+      - "4000:4000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+  web:
+    container_name: athenas-web
+    build:
+      context: ./web
+      dockerfile: ./Dockerfile
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "3000:3000"

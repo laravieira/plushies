@@ -1,5 +1,5 @@
 window.plushie = {
-  host: 'http://localhost:4000',
+  host: process.env.SERVER_HOST || 'http://localhost:4000',
   page: 1,
   limit: 10,
   search: '',

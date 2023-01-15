@@ -1,5 +1,5 @@
 requirejs.config({
-    baseUrl: '/web',
+    baseUrl: '/',
     paths: {
         'handlers': 'handlers',
         'components': 'components',
