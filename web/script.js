@@ -3,7 +3,7 @@ requirejs.config({
     paths: {
         'handlers': 'handlers',
         'components': 'components',
-        'jquery': 'node_modules/jquery/dist/jquery'
+        'jquery': '//code.jquery.com/jquery-3.6.3.min'
     }
 });
 
