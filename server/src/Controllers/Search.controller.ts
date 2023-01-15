@@ -5,15 +5,15 @@ import { Op } from 'sequelize';
 function SearchController(request: Request<{
   query: string | undefined
 }, {}, {}, {
-  page: number|undefined,
-  amount: number|undefined,
+  page: string|undefined,
+  amount: string|undefined,
 }>, response: Response) {
   if(!request.params.query || request.params.query.length < 1)
     return response.sendStatus(400);
 
   // Returns a list of plugies
-  const page = request.query.page || 1;
-  const amount = request.query.amount || 15;
+  const page = parseInt(request.query.page || '1');
+  const amount = parseInt(request.query.amount || '15');
 
   Plushie.findAll({
     where: {
