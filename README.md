@@ -4,7 +4,7 @@
 Athenas CRUD challenge with Bootstrap &amp; JQuery &amp; DevExpress
 
 ### Just check it out
-[athenas.laraveira.me](https://athenas.laraveira.me/)
+[athenas.laravieira.me](https://athenas.laravieira.me/)
 
 ### How to run it locally
 Using npm:
